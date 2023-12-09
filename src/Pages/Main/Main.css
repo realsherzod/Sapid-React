@@ -1,0 +1,36 @@
+.menu_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Add these styles to your CSS file or style component */
+
+.basket-popup {
+  width: 100vw;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: none;
+  justify-content: end;
+}
+
+.basket-popup.active {
+  display: flex;
+}
+
+.basket-popup-content {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  overflow: auto;
+}
+
+/* Styles for the background under the popup */
+.menu_div.active .basket-popup {
+  background-color: rgba(0, 0, 0, 0.5); 
+}

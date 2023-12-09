@@ -1,0 +1,101 @@
+
+
+.about_all {
+  margin-top: 100px;
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #036c5e;
+  color: #fff;
+ 
+}
+.drops{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.drop_down {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+align-items: center;
+padding-top: 20px;
+  z-index: 100;
+  cursor: pointer;
+  width: 700px;
+  height: 70px;
+  background-color: #2dad9c;
+  border-radius: 8px;
+}
+.drop1 {
+  cursor: pointer;
+  width: 700px;
+  height: 70px;
+  background-color: #2dad9c;
+  border-radius: 8px;
+}
+.drop2 {
+  cursor: pointer;
+  width: 700px;
+  height: 70px;
+  background-color: #2dad9c;
+  border-radius: 8px;
+}
+.drop_down2 {
+  cursor: pointer;
+  width: 700px;
+  height: 70px;
+  background-color: #2dad9c;
+  border-radius: 8px;
+}
+.texxt{
+  margin-top: 20px;
+}
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  height: auto;
+  background-color: #2dad9c;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.bike{
+  margin-top: 150px;
+}
+.drop1 , .drop2 {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.drop2 {
+  gap: 20px;
+}
+.downloads{
+  display: flex;
+z-index: 1;
+  gap: 10px;
+}
+.downloads a{
+  text-decoration: none;
+  color: white;
+}
+.downloads div{
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 166px;
+  height: 70px;
+  background-color: black;
+}
+.downloads img {
+  width: 40px;
+  height: 40px;
+}

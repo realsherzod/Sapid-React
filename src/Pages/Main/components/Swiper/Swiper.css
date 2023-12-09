@@ -1,0 +1,44 @@
+.img1 {
+  width: 100vw;
+  height: 100vh;
+  opacity: 30%;
+  cursor: grab;
+}
+.swiper {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+.text-overlay {
+  display: flex;
+  flex-direction: column;
+  top: 30%;
+  gap: 10px;
+  left: 10%;
+  position: absolute;
+  color: white;
+}
+.title{
+    width: 70%;
+    font-size: 56px;
+}
+.title2{
+    font-size: 24px;
+    width: 70%;
+}
+@media screen and (max-width: 455px) {
+.swiper img{
+  height: 300px;
+}
+.title{
+  width: 100%;
+  font-size: 24px;
+}
+.title2{
+  font-size: 18px;
+}
+.text-overlay{
+  margin-left: 20px;
+}
+}

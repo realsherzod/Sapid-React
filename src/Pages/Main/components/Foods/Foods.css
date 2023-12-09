@@ -1,0 +1,213 @@
+.foods_all {
+  margin-top: 50px;
+  background-size: cover;
+
+}
+/* Foods.css */
+.foods_all {
+  padding: 0 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.parent-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.foods_card {
+  background-color: white;
+  -webkit-box-shadow: 0px 14px 56px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 14px 56px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 14px 56px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 8px;
+  width: 300px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.foods_card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.foods_card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.food_title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.food_image {
+  width: 100%;
+  height: 200px !important;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.food_description {
+  margin-bottom: 8px;
+}
+
+.food_price {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #1c786b; /* Green color */
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.food_count {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 20px;
+}
+.card_all {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card_count {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.count_button {
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.count_value {
+  font-size: 1.2em;
+}
+
+.add_to_cart_button {
+  background-color: #1c786b; /* Green color */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.div_bottom {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.basket {
+  margin-left: auto;
+  margin-top: -70px;
+  cursor: pointer;
+  font-size: 17px !important;
+}
+.card_image {
+  width: 70px;
+  height: 70px;
+}
+.basket-popup-content {
+  height: 100vh !important;
+}
+
+/* Add these styles to your Foods.css file */
+
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.empty {
+  height: 200px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.empty-card {
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 70px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 700px; /* Adjust the width as needed */
+  text-align: center;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-buttons button:hover {
+  background-color: #1c786b;
+  color: #fff;
+}
+
+/* End of modal styles */
+
+.alert-success{
+  top: 10%;
+  position: fixed;
+  z-index: 1000;
+  background-color: #1c786b;
+  color: white;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
+box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
+}
