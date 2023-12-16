@@ -1,13 +1,14 @@
 
 
 .about_all {
+
   margin-top: 100px;
   height: 80vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px;
-  background-color: #036c5e;
+  background:linear-gradient(to right, rgb(52, 51, 51), black);
   color: #fff;
  
 }
@@ -26,28 +27,28 @@ padding-top: 20px;
   cursor: pointer;
   width: 700px;
   height: 70px;
-  background-color: #2dad9c;
+  background: linear-gradient(to right, grey, rgb(45, 45, 45));
   border-radius: 8px;
 }
 .drop1 {
   cursor: pointer;
   width: 700px;
   height: 70px;
-  background-color: #2dad9c;
+  background: linear-gradient(to right, grey, rgb(45, 45, 45));
   border-radius: 8px;
 }
 .drop2 {
   cursor: pointer;
   width: 700px;
   height: 70px;
-  background-color: #2dad9c;
+  background: linear-gradient(to right, grey, rgb(45, 45, 45));
   border-radius: 8px;
 }
 .drop_down2 {
   cursor: pointer;
   width: 700px;
   height: 70px;
-  background-color: #2dad9c;
+  background: linear-gradient(to right, grey, rgb(45, 45, 45));
   border-radius: 8px;
 }
 .texxt{
@@ -59,12 +60,13 @@ padding-top: 20px;
   align-items: center;
   width: 700px;
   height: auto;
-  background-color: #2dad9c;
+  background: linear-gradient(to right, grey, rgb(45, 45, 45));
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 .bike{
-  margin-top: 150px;
+  width: 585px;
+  height: 585px;
 }
 .drop1 , .drop2 {
   padding-top: 10px;
@@ -93,7 +95,7 @@ z-index: 1;
   gap: 10px;
   width: 166px;
   height: 70px;
-  background-color: black;
+  background: linear-gradient(to right, rgb(34, 34, 34), rgb(0, 0, 0));
 }
 .downloads img {
   width: 40px;

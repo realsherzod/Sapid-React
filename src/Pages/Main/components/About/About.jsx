@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import bike from "../../../../assets/bike.png";
 import "./About.css";
-
+import { useTranslation } from 'react-i18next';
+import Aos from 'aos';
 
 function About() {
-
+  Aos.init()
+  const { t } = useTranslation();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isDropdownOpen2, setDropdownOpen2] = useState(false);
 
@@ -16,10 +18,10 @@ function About() {
   };
 
   return (
-    <div data-aos="zoom-in-up" className='about_all'>
+    <div className='about_all'>
       <div className='drops'>
       <div className='drop1'>
-  <p>Св. д. 46, Алмазор, Мирзо Улугбекский район</p>
+  <p>{t('address')}</p>
       </div>
       <div className='drop2'>
 <p>
@@ -30,12 +32,12 @@ function About() {
       </div>
       <div className='drop_down' onClick={toggleDropdown}>
         <div>
-      Дополнительная информация
+      {t('info')}
       <i className="ri-skip-down-line"></i>
       </div>
         {isDropdownOpen && (
           <div className='dropdown-content'>
-         <p className='texxt'>Св. д. 46, Алмазор, Мирзо Улугбекский район</p>
+         <p className='texxt'>{t('address')}</p>
          <div className='drop2'>
 <p>
   +998 77 048 77 48
@@ -43,7 +45,7 @@ function About() {
 <p>|</p>
 <p>+998 94 620 43 20</p>
       </div>
-      <p>Доступна услуга доставки.</p>
+      <p>{t('pochta')}</p>
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-.img1 {
+/* .img1 {
   width: 100vw;
   height: 100vh;
   opacity: 30%;
@@ -26,19 +26,41 @@
 .title2{
     font-size: 24px;
     width: 70%;
+} */
+
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+.swiper-all{
+  margin-top: 150px;
+  display: flex;
+  padding: 0 100px;
+  align-items: center;
 }
-@media screen and (max-width: 455px) {
-.swiper img{
-  height: 300px;
+.burger{
+  width: 600px;
+  height: 500px;
+  margin-right: -80px;
 }
-.title{
-  width: 100%;
+.burger-text{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.burger-text h1 {
+  font-family: 'Dancing Script';
+  font-size: 60px;
+}
+.burger-desc{
+  font-family: 'Dancing Script';
   font-size: 24px;
 }
-.title2{
-  font-size: 18px;
+.burger-btn{
+  width: 170px;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, grey, black );
+  color: white;
 }
-.text-overlay{
-  margin-left: 20px;
-}
-}
+
+

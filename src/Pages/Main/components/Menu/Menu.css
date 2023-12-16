@@ -1,5 +1,5 @@
 .menu-container {
-  padding: 0 50px;
+  padding: 0 90px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -15,23 +15,26 @@
 .menu-items li {
   cursor: pointer;
   margin: 5px;
-  padding: 10px;
+  padding: 10px 30px;
   border: 2px solid #ccc;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border-radius: 30px;
+  transition: all 0.3s ;
+}
+.menu-items li:hover{
+  background-color: #ccc;
 }
 
 .menu-items li.active {
-  background-color: #1C786B;
+  background: linear-gradient(to right, grey, black);
   color: white;
-  border-color: #1C786B;
+  border-color: grey;
 }
 .basket{
   width: 140px;
   height: 50px;
-  background-color: #1C786B;
+  background: linear-gradient(to right, grey, black);
   margin-right: 50px;
-  border-radius: 4px;
+  border-radius: 30px;
   display: flex;
   font-size:25px;
   gap: 10px;
@@ -41,4 +44,7 @@
 }
 .count{
   margin-top: 10px;
+}
+.ri-shopping-basket-2-line{
+  font-size: 24px;
 }

@@ -1,11 +1,12 @@
 /* Header.css */
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Roboto:wght@300;400;500;700&display=swap');
 .footer_all {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: #02362F;
+    background-color: black;
     color: white;
   }
   
@@ -23,32 +24,13 @@
     gap: 50px;
   }
   
-  .footer_menus li {
-    margin-right: 70px;
-    font-size: 16px;
-    cursor: pointer;
-  }
   
-  .language {
-    display: flex;
-    align-items: center;
+ 
+  .footer_logo h1{
+    font-family: 'Dancing Script';
+color: white;
   }
-  
-  .korzina {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    font-size: 20px;
-    width: 144px;
-    height: 50px;
-    background-color: #348379;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .header_menus li.active {
-      color:#EAC632; 
-    }
+
     .to_up{
       display: flex;
       justify-content: center;
@@ -58,8 +40,8 @@
       cursor: pointer;
       width: 50px;
       height: 50px;
-      background-color: rgb(205, 205, 54);
-      border-radius: 4px;
-      color: #348379;
+      background:linear-gradient(to right, rgb(52, 51, 51), rgb(64, 64, 64));
+      border-radius: 50%;
+      color: white;
     }
   

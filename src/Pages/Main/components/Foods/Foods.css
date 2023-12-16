@@ -26,7 +26,7 @@
   width: 300px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
-  padding: 10px;
+
   box-sizing: border-box;
 }
 
@@ -34,14 +34,19 @@
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
+  border-radius: 0 !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
 }
 
 .foods_card {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
   margin-bottom: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.foods_text{
+  padding: 10px;
 }
 
 .food_title {
@@ -64,7 +69,7 @@
 .food_price {
   font-size: 1.1em;
   font-weight: bold;
-  color: #1c786b; /* Green color */
+  color: grey;
   margin-bottom: 8px;
   cursor: pointer;
 }
@@ -82,37 +87,55 @@
 }
 
 .card_count {
+  font-size: 18px;
   display: flex;
   align-items: center;
-  margin-top: 16px;
-  font-size: 14px;
 }
 
 .count_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  width: 34px;
+  height: 34px;
+  background-color: #ccc;
+  font-weight: 900;
+  border-radius: 8px;
   cursor: pointer;
   margin-right: 8px;
   font-size: 1.2em;
 }
+
 
 .count_value {
   font-size: 1.2em;
 }
 
 .add_to_cart_button {
-  background-color: #1c786b; /* Green color */
+  background: linear-gradient(to right, grey , black);
   color: white;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+.add_to_cart_button:hover{
+  background: #ccc;
+  color: black;
+}
+.ri-delete-bin-line{
+  color: white;
 }
 .div_bottom {
-  justify-content: space-between;
+  justify-content:end;
   align-items: center;
   display: flex;
+  margin-top: -20px;
 }
 .basket {
-  margin-left: auto;
+  margin-left:79%;
   margin-top: -70px;
   cursor: pointer;
   font-size: 17px !important;
@@ -121,8 +144,29 @@
   width: 70px;
   height: 70px;
 }
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .basket-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh !important;
+  animation: slideInFromRight 0.3s ease-in-out;
+}
+.basket-popup-content.slide-in {
+  animation: slideInFromRight 0.5s ease-in-out;
+}
+
+.card-buttons{
+  display: flex;
+  justify-content: end;
 }
 
 /* Add these styles to your Foods.css file */
@@ -140,13 +184,22 @@
   z-index: 1000;
 }
 .empty {
-  height: 200px;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  height: 350px;
+  margin-top: 70px;
 }
 .empty-card {
   font-weight: 700;
   margin-top: 20px;
+  color: rgb(62, 61, 61);
+}
+.delete_button{
+  background: linear-gradient(to right, grey , black);
+  width: 35px;
+  height: 35px;
+border: none;
+border-radius: 8px;
+margin-top: -10px;
+margin-left: 10px;
 }
 
 .modal-content {
@@ -179,7 +232,8 @@
 
 .modal-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: end;
+  gap: 10px;
 }
 
 .modal-buttons button {
@@ -188,12 +242,20 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition:all 0.3s;
+  background: linear-gradient(to right, grey , black);
+  color: white;
+  border-radius: 30px;
+  transition: all 0.3s;
 }
 
 .modal-buttons button:hover {
-  background-color: #1c786b;
-  color: #fff;
+  background: #ccc;
+  color: black;
+}
+.ri-check-double-line{
+  font-size: 20px;
+  color: greenyellow;
 }
 
 /* End of modal styles */
@@ -202,7 +264,7 @@
   top: 10%;
   position: fixed;
   z-index: 1000;
-  background-color: #1c786b;
+  background: linear-gradient(to right, grey , black);
   color: white;
   font-weight: 800;
   border: none;
@@ -210,4 +272,19 @@
   -webkit-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
 -moz-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
 box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
+animation: fadeInOut 2s ease-in-out;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

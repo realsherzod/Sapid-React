@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ModalForm from "./components/ModalForm/ModalForm";
+import empty from "../../../../assets/empty.jpg";
 import "./Foods.css";
+import { useTranslation } from "react-i18next";
 
 function Foods() {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -61,39 +64,6 @@ function Foods() {
     setModalOpen(false);
   };
 
-  // const handleIncrement = (index) => {
-  //   setLocalStorageData((prevData) => {
-  //     const updatedData = prevData.map((item, i) => {
-  //       if (i === index) {
-  //         return { ...item, quantity: item.quantity + 1 };
-  //       }
-  //       return item;
-  //     });
-
-  //     saveDataToLocalStorage(updatedData);
-  //     return updatedData;
-  //   });
-  // };
-
-  // const handleDecrement = (index) => {
-  //   setLocalStorageData((prevData) => {
-  //     const updatedData = prevData.map((item, i) => {
-  //       if (i === index) {
-  //         const newQuantity = item.quantity - 1;
-
-  //         if (newQuantity >= 0) {
-  //           return { ...item, quantity: newQuantity };
-  //         }
-  //         return item;
-  //       }
-  //       return item;
-  //     });
-
-  //     saveDataToLocalStorage(updatedData);
-  //     return updatedData;
-  //   });
-  // };
-
   const handleBasketClick = () => {
     setBasketPopupVisible(!isBasketPopupVisible);
   };
@@ -117,7 +87,6 @@ function Foods() {
     setTimeout(() => {
       setShowAlert(false);
     }, 1500);
-
   };
   const handleIncrementBasket = (index) => {
     setLocalStorageData((prevData) => {
@@ -188,18 +157,27 @@ function Foods() {
     );
   };
 
+  const handleDeleteFromCart = (index) => {
+    setLocalStorageData((prevData) => {
+      const updatedData = prevData.filter((item, i) => i !== index);
+      saveDataToLocalStorage(updatedData);
+      return updatedData;
+    });
+  };
+
   return (
     <div className="parent-div">
-        {showAlert && (
-            <div className="alert alert-success show" role="alert">
-              Заказ успешно добавлен!
-            </div>
-          )}
-      <div data-aos="zoom-in-up" className="basket" onClick={handleBasketClick}>
+      {showAlert && (
+        <div className="alert alert-success show" role="alert">
+          {t("modal")}
+          <i className="ri-check-double-line"></i>
+        </div>
+      )}
+      <div className="basket" onClick={handleBasketClick}>
         <i className="ri-shopping-basket-2-line"></i>
-        {calculateTotalSum()} сум
+        {calculateTotalSum()} {t("sum")}
       </div>
-      <div data-aos="zoom-in-up" className="foods_all">
+      <div className="foods_all">
         {isLoading ? (
           <p>Loading...</p>
         ) : isError ? (
@@ -212,24 +190,28 @@ function Foods() {
                 src={`http://127.0.0.1:8000/storage/${food.image}`}
                 alt={`Food: ${food.title}`}
               />
-              <p className="food_title">{food.title}</p>
-              <p className="food_description">{food.description}</p>
-              <p className="food_price">{food.price} сум</p>
-              <div className="div_bottom">
-              <div>
-      <button
-        className="add_to_cart_button"
-        onClick={() => handleAddToCart(food, index)}
-      >
-        Добавить
-      </button>
+              <div className="foods_text">
+                <p className="food_title">{food.title}</p>
+                <p className="food_description">{food.description}</p>
+                <p className="food_price">
+                  {food.price} {t("sum")}
+                </p>
 
-    </div>
+                <div className="div_bottom">
+                  <div>
+                    <button
+                      className="add_to_cart_button"
+                      onClick={() => handleAddToCart(food, index)}
+                    >
+                      {t("add")}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           ))
-          )}
-        
+        )}
+
         <div className={`basket-popup ${isBasketPopupVisible ? "active" : ""}`}>
           <div
             className="basket-popup-content"
@@ -239,8 +221,9 @@ function Foods() {
               boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
             }}
           >
-            <p style={{ fontSize: "18px", marginBottom: "10px" }}>
-              Ваши заказы:
+            <div>
+            <p style={{ fontSize: "30px", fontWeight: "700",color: "#777676", marginBottom: "10px" }}>
+              {t("ordertext")}
             </p>
             {localStorageData.length > 0 ? (
               <div>
@@ -273,7 +256,7 @@ function Foods() {
                           className="food_price"
                           style={{ fontSize: "14px", color: "#777" }}
                         >
-                          {item.price} сум
+                          {item.price} {t("sum")}
                         </p>
                         <div
                           className="card_count"
@@ -311,6 +294,12 @@ function Foods() {
                           >
                             +
                           </p>
+                          <button
+                            className="delete_button"
+                            onClick={() => handleDeleteFromCart(index)}
+                          >
+                            <i className="ri-delete-bin-line"></i>
+                          </button>
                         </div>
                       </div>
                       <div>
@@ -328,6 +317,7 @@ function Foods() {
                       </div>
                     </div>
                   ))}
+                </ul>
                   <p
                     style={{
                       fontSize: "16px",
@@ -335,9 +325,9 @@ function Foods() {
                       marginTop: "10px",
                     }}
                   >
-                    Итого: {calculateTotalSum()}
+                    {t("allprice")}
+                    {calculateTotalSum()}
                   </p>
-                </ul>
               </div>
             ) : (
               <div
@@ -347,32 +337,29 @@ function Foods() {
                   alignItems: "center",
                 }}
               >
+                <img className="empty" src={empty} alt="" />
                 <p className="empty-card" style={{ fontSize: "24px" }}>
-                  Ваша корзина пуста.
+                  {t("empty")}
                 </p>
-                <img
-                  className="empty"
-                  src="https://cdn-icons-png.flaticon.com/128/9752/9752284.png"
-                  alt=""
-                />
               </div>
-            )}
+            )}</div>
             <div className="card-buttons">
               <button
                 onClick={handleCloseButtonClick}
                 style={{
                   marginTop: "20px",
-                  padding: "10px",
+                  padding: "10px 20px",
                   fontSize: "16px",
                   marginRight: "10px",
                   cursor: "pointer",
-                  borderRadius: "4px",
-                  backgroundColor: "#BE3144",
+                  borderRadius: "30px",
+                  backgroundColor: "#ccc",
                   border: "none",
-                  color: "white",
+                  color: "black",
+                  fontWeight: "600",
                 }}
               >
-                Закрыть
+                {t("close")}
               </button>
               <button
                 onClick={(e) => {
@@ -381,16 +368,16 @@ function Foods() {
                 }}
                 style={{
                   marginTop: "20px",
-                  padding: "10px",
+                  padding: "10px 20px",
                   fontSize: "16px",
                   cursor: "pointer",
-                  borderRadius: "4px",
-                  backgroundColor: "#1C786B",
+                  borderRadius: "30px",
+                  background: "linear-gradient(to right, grey, black)",
                   border: "none",
                   color: "white",
                 }}
               >
-                Отправить
+                {t("send")}
               </button>
             </div>
           </div>

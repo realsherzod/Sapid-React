@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Menu.css';
-
+import { useTranslation } from 'react-i18next';
 
 function Menu() {
-
+  const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
   const [activeItem, setActiveItem] = useState(-1);
 
@@ -30,7 +30,7 @@ function Menu() {
       <div className="menu-items">
         <ul>
           <li className={activeItem === -1 ? 'active' : ''} onClick={() => handleItemClick(-1)}>
-            все
+          {t('all')}
           </li>
           {categories.map((category, index) => (
             <li
@@ -38,7 +38,7 @@ function Menu() {
               onClick={() => handleItemClick(index)}
               className={activeItem === index ? 'active' : ''}
             >
-              {category.name}
+              {category.name_uz}
             </li>
           ))}
         </ul>
