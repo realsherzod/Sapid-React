@@ -1,7 +1,13 @@
 .menu_div {
+  position: sticky;
+  top:0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 100;
+  background: linear-gradient(to right, rgb(243, 243, 243) , rgb(249, 245, 245));
+  height: 100px;
 }
 
 /* Add these styles to your CSS file or style component */
@@ -13,7 +19,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: end;
 }
@@ -32,5 +38,5 @@
 
 /* Styles for the background under the popup */
 .menu_div.active .basket-popup {
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
 }

@@ -8,8 +8,8 @@
   width: 270px;
   height: 300px;
   -webkit-box-shadow: 3px 6px 23px 11px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 3px 6px 23px 11px rgba(34, 60, 80, 0.2);
-box-shadow: 3px 6px 23px 11px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 3px 6px 23px 11px rgba(34, 60, 80, 0.2);
+  box-shadow: 3px 6px 23px 11px rgba(34, 60, 80, 0.2);
 }
 
 .card_image img {
@@ -53,6 +53,5 @@ box-shadow: 3px 6px 23px 11px rgba(34, 60, 80, 0.2);
   background-color: #036c5e;
   color: white;
 }
-
 
 /* Add more styles as needed */

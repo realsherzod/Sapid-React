@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import bike from "../../../../assets/bike.png";
+import bike from "../../../../assets/delivery.jpeg";
 import "./About.css";
 import { useTranslation } from 'react-i18next';
 import Aos from 'aos';

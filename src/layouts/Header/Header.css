@@ -1,18 +1,16 @@
 /* Header.css */
 
 .header_all {
-  z-index: 100;
-  top: 0;
-  position: fixed;
+  z-index: 101;
+  -webkit-box-shadow: 2px 13px 34px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 2px 13px 34px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 2px 13px 34px 0px rgba(34, 60, 80, 0.2);
   width: 100%;
 background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 100px;
-  -webkit-box-shadow: -1px 8px 36px -10px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 8px 36px -10px rgba(0,0,0,0.75);
-box-shadow: -1px 8px 36px -10px rgba(0,0,0,0.75);
 }
 
 .header_logo img {
@@ -90,6 +88,7 @@ select {
 
 .language {
   position: relative;
+ 
 }
 
 .language-toggle {
@@ -155,18 +154,6 @@ select {
 .flag-divs a:hover{
   background-color: #EEE7DA;
   border-radius: 8px;
-}
-
-
-@media screen and (max-width:455px){
-.header_all{
-  flex-direction: column;
-  align-items: start;
-}
-.header_menus ul {
-  flex-direction: column;
-}
-  
 }
 
   

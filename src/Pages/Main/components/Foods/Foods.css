@@ -1,51 +1,10 @@
 .foods_all {
   margin-top: 50px;
   background-size: cover;
-
 }
 /* Foods.css */
-.foods_all {
-  padding: 0 50px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-.parent-div{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-}
-
-.foods_card {
-  background-color: white;
-  -webkit-box-shadow: 0px 14px 56px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 0px 14px 56px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 0px 14px 56px 0px rgba(34, 60, 80, 0.2);
-  border-radius: 8px;
-  width: 300px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-
-  box-sizing: border-box;
-}
-
-.foods_card img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 0 !important;
-  border-top-left-radius: 8px !important;
-  border-top-right-radius: 8px !important;
-}
-
-.foods_card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.foods_text{
+.foods_text {
   padding: 10px;
 }
 
@@ -55,11 +14,32 @@
   margin-bottom: 8px;
 }
 
-.food_image {
+.swiper1 {
+  border-radius: 16px;
+  box-shadow: 0px 4px 33px -6px rgba(34, 60, 80, 0.2);
+  border: 1px solid rgb(224, 224, 224);
+  transition: all 0.3s;
+}
+.swiper1:hover {
+  cursor: pointer;
+  transform: scale(1.03); /* Adjust the scale factor as needed */
+  -webkit-box-shadow: 6px 11px 36px 12px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 6px 11px 36px 12px rgba(34, 60, 80, 0.2);
+  box-shadow: 6px 11px 36px 12px rgba(34, 60, 80, 0.2);
+}
+
+
+.swiper1 .food_image {
   width: 100%;
-  height: 200px !important;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  height: 200px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom: 3px solid rgb(238, 235, 235);
+}
+
+.mySwiper {
+  padding: 50px 100px !important;
+  margin-top: -30px !important;
 }
 
 .food_description {
@@ -73,7 +53,9 @@
   margin-bottom: 8px;
   cursor: pointer;
 }
-
+.vse {
+  margin-bottom: 30px;
+}
 .food_count {
   display: flex;
   align-items: center;
@@ -107,13 +89,12 @@
   font-size: 1.2em;
 }
 
-
 .count_value {
   font-size: 1.2em;
 }
 
 .add_to_cart_button {
-  background: linear-gradient(to right, grey , black);
+  background: linear-gradient(to right, grey, black);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -121,24 +102,28 @@
   cursor: pointer;
   transition: all 0.3s;
 }
-.add_to_cart_button:hover{
+.add_to_cart_button:hover {
   background: #ccc;
   color: black;
 }
-.ri-delete-bin-line{
+.ri-delete-bin-line {
   color: white;
 }
 .div_bottom {
-  justify-content:end;
+  justify-content: end;
   align-items: center;
   display: flex;
   margin-top: -20px;
 }
 .basket {
-  margin-left:79%;
-  margin-top: -70px;
+  background-color: white;
+  margin-left: 79%;
+  margin-top: -75px;
   cursor: pointer;
   font-size: 17px !important;
+  position: sticky;
+  top: 25px;
+  left: 0;
 }
 .card_image {
   width: 70px;
@@ -164,7 +149,7 @@
   animation: slideInFromRight 0.5s ease-in-out;
 }
 
-.card-buttons{
+.card-buttons {
   display: flex;
   justify-content: end;
 }
@@ -192,14 +177,14 @@
   margin-top: 20px;
   color: rgb(62, 61, 61);
 }
-.delete_button{
-  background: linear-gradient(to right, grey , black);
+.delete_button {
+  background: linear-gradient(to right, grey, black);
   width: 35px;
   height: 35px;
-border: none;
-border-radius: 8px;
-margin-top: -10px;
-margin-left: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: -10px;
+  margin-left: 10px;
 }
 
 .modal-content {
@@ -242,8 +227,8 @@ margin-left: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition:all 0.3s;
-  background: linear-gradient(to right, grey , black);
+  transition: all 0.3s;
+  background: linear-gradient(to right, grey, black);
   color: white;
   border-radius: 30px;
   transition: all 0.3s;
@@ -253,26 +238,27 @@ margin-left: 10px;
   background: #ccc;
   color: black;
 }
-.ri-check-double-line{
+.ri-check-double-line {
   font-size: 20px;
   color: greenyellow;
 }
 
 /* End of modal styles */
 
-.alert-success{
-  top: 10%;
+.alert-success {
+  left: 45%;
+  top: 20%;
   position: fixed;
   z-index: 1000;
-  background: linear-gradient(to right, grey , black);
+  background: linear-gradient(to right, grey, black);
   color: white;
   font-weight: 800;
   border: none;
   outline: none;
   -webkit-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
--moz-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
-animation: fadeInOut 2s ease-in-out;
+  -moz-box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
+  box-shadow: -3px 8px 20px 12px rgba(34, 60, 80, 0.2);
+  animation: fadeInOut 2s ease-in-out;
 }
 @keyframes fadeInOut {
   0% {
@@ -287,4 +273,18 @@ animation: fadeInOut 2s ease-in-out;
   100% {
     opacity: 0;
   }
+}
+
+
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 200;
+  background-color: white;
 }

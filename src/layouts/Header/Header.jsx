@@ -27,7 +27,7 @@ function Header() {
   
 
     if (menuItem === "Меню") {
-      window.scrollTo(0, 550);
+      window.scrollTo(0, 650);
     } else if (menuItem === "Контакты") {
       window.scrollTo(0, document.body.scrollHeight);
     } else if(menuItem === "Главная"){

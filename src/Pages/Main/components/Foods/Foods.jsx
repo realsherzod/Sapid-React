@@ -3,6 +3,13 @@ import ModalForm from "./components/ModalForm/ModalForm";
 import empty from "../../../../assets/empty.jpg";
 import "./Foods.css";
 import { useTranslation } from "react-i18next";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import { FreeMode, Navigation } from "swiper/modules";
+import Filter from "../Filter/Filter";
+import loader from "../../../../assets/loader.gif"
 
 function Foods() {
   const { t } = useTranslation();
@@ -164,7 +171,34 @@ function Foods() {
       return updatedData;
     });
   };
+  function getFoodName(food) {
+    const lang = localStorage.getItem("lang");
 
+    switch (lang) {
+      case "ru":
+        return food.title_ru;
+      case "uz":
+        return food.title_uz;
+      case "en":
+        return food.title_en;
+      default:
+        return food.title_ru;
+    }
+  }
+  function getFoodDescription(food) {
+    const lang = localStorage.getItem("lang");
+
+    switch (lang) {
+      case "ru":
+        return food.description_ru;
+      case "uz":
+        return food.description_uz;
+      case "en":
+        return food.description_en;
+      default:
+        return food.description_ru;
+    }
+  }
   return (
     <div className="parent-div">
       {showAlert && (
@@ -178,40 +212,55 @@ function Foods() {
         {calculateTotalSum()} {t("sum")}
       </div>
       <div className="foods_all">
+        <h1 className="filter_title vse"> {t("all")}</h1>
         {isLoading ? (
-          <p>Loading...</p>
+          <div className="loader">
+          <img src={loader} alt="" />
+          </div>
         ) : isError ? (
           <p>Error fetching data</p>
         ) : (
-          foodsData.map((food, index) => (
-            <div className="foods_card" key={index}>
-              <img
-                className="food_image"
-                src={`http://127.0.0.1:8000/storage/${food.image}`}
-                alt={`Food: ${food.title}`}
-              />
-              <div className="foods_text">
-                <p className="food_title">{food.title}</p>
-                <p className="food_description">{food.description}</p>
-                <p className="food_price">
-                  {food.price} {t("sum")}
-                </p>
+          <Swiper
+            slidesPerView={5}
+            spaceBetween={30}
+            freeMode={true}
+            navigation={true}
+            modules={[FreeMode, Navigation]}
+            className="mySwiper"
+          >
+            {foodsData.map((food, index) => (
+              <SwiperSlide className="swiper1" key={index}>
+                <div className="all-foods">
+                  <img
+                    className="food_image"
+                    src={`http://127.0.0.1:8000/storage/${food.image}`}
+                    alt={`Food: ${food.title}`}
+                  />
+                  <div className="foods_text">
+                    <p className="food_title"> {getFoodName(food)}</p>
+                    <p className="food_description">
+                      {getFoodDescription(food)}
+                    </p>
+                    <p className="food_price">
+                      {food.price} {t("sum")}
+                    </p>
 
-                <div className="div_bottom">
-                  <div>
-                    <button
-                      className="add_to_cart_button"
-                      onClick={() => handleAddToCart(food, index)}
-                    >
-                      {t("add")}
-                    </button>
+                    <div className="div_bottom">
+                      <div>
+                        <button
+                          className="add_to_cart_button"
+                          onClick={() => handleAddToCart(food, index)}
+                        >
+                          {t("add")}
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))
+              </SwiperSlide>
+            ))}
+          </Swiper>
         )}
-
         <div className={`basket-popup ${isBasketPopupVisible ? "active" : ""}`}>
           <div
             className="basket-popup-content"
@@ -222,102 +271,109 @@ function Foods() {
             }}
           >
             <div>
-            <p style={{ fontSize: "30px", fontWeight: "700",color: "#777676", marginBottom: "10px" }}>
-              {t("ordertext")}
-            </p>
-            {localStorageData.length > 0 ? (
-              <div>
-                <ul style={{ listStyleType: "none", padding: 0 }}>
-                  {localStorageData.map((item, index) => (
-                    <div
-                      key={index}
-                      className="card_all"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        marginBottom: "10px",
-                        borderBottom: "1px solid #ccc",
-                        paddingBottom: "10px",
-                      }}
-                    >
-                      <div className="card_items" style={{ flex: 1 }}>
-                        <p
-                          className="food_title"
-                          style={{
-                            fontSize: "16px",
-                            fontWeight: "bold",
-                            marginBottom: "5px",
-                          }}
-                        >
-                          {item.title}
-                        </p>
-                        <p
-                          className="food_price"
-                          style={{ fontSize: "14px", color: "#777" }}
-                        >
-                          {item.price} {t("sum")}
-                        </p>
-                        <div
-                          className="card_count"
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            marginTop: "5px",
-                          }}
-                        >
+              <p
+                style={{
+                  fontSize: "30px",
+                  fontWeight: "700",
+                  color: "#777676",
+                  marginBottom: "10px",
+                }}
+              >
+                {t("ordertext")}
+              </p>
+              {localStorageData.length > 0 ? (
+                <div>
+                  <ul style={{ listStyleType: "none", padding: 0 }}>
+                    {localStorageData.map((item, index) => (
+                      <div
+                        key={index}
+                        className="card_all"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          marginBottom: "10px",
+                          borderBottom: "1px solid #ccc",
+                          paddingBottom: "10px",
+                        }}
+                      >
+                        <div className="card_items" style={{ flex: 1 }}>
                           <p
-                            className="count_button"
-                            onClick={() => handleDecrementBasket(index)}
+                            className="food_title"
                             style={{
-                              cursor: "pointer",
-                              fontSize: "18px",
-                              marginRight: "5px",
+                              fontSize: "16px",
+                              fontWeight: "bold",
+                              marginBottom: "5px",
                             }}
                           >
-                            -
+                            {item.title}
                           </p>
                           <p
-                            className="count_value"
-                            style={{ fontSize: "16px", fontWeight: "bold" }}
+                            className="food_price"
+                            style={{ fontSize: "14px", color: "#777" }}
                           >
-                            {item.quantity}
+                            {item.price} {t("sum")}
                           </p>
-                          <p
-                            className="count_button"
-                            onClick={() => handleIncrementBasket(index)}
+                          <div
+                            className="card_count"
                             style={{
-                              cursor: "pointer",
-                              fontSize: "18px",
-                              marginLeft: "5px",
+                              display: "flex",
+                              alignItems: "center",
+                              marginTop: "5px",
                             }}
                           >
-                            +
-                          </p>
-                          <button
-                            className="delete_button"
-                            onClick={() => handleDeleteFromCart(index)}
-                          >
-                            <i className="ri-delete-bin-line"></i>
-                          </button>
+                            <p
+                              className="count_button"
+                              onClick={() => handleDecrementBasket(index)}
+                              style={{
+                                cursor: "pointer",
+                                fontSize: "18px",
+                                marginRight: "5px",
+                              }}
+                            >
+                              -
+                            </p>
+                            <p
+                              className="count_value"
+                              style={{ fontSize: "16px", fontWeight: "bold" }}
+                            >
+                              {item.quantity}
+                            </p>
+                            <p
+                              className="count_button"
+                              onClick={() => handleIncrementBasket(index)}
+                              style={{
+                                cursor: "pointer",
+                                fontSize: "18px",
+                                marginLeft: "5px",
+                              }}
+                            >
+                              +
+                            </p>
+                            <button
+                              className="delete_button"
+                              onClick={() => handleDeleteFromCart(index)}
+                            >
+                              <i className="ri-delete-bin-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div>
+                          <img
+                            className="card_image"
+                            src={`http://127.0.0.1:8000/storage/${item.image}`}
+                            alt={`Food: ${item.title}`}
+                            style={{
+                              width: "80px",
+                              height: "80px",
+                              borderRadius: "8px",
+                              objectFit: "cover",
+                            }}
+                          />
                         </div>
                       </div>
-                      <div>
-                        <img
-                          className="card_image"
-                          src={`http://127.0.0.1:8000/storage/${item.image}`}
-                          alt={`Food: ${item.title}`}
-                          style={{
-                            width: "80px",
-                            height: "80px",
-                            borderRadius: "8px",
-                            objectFit: "cover",
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </ul>
+                    ))}
+                  </ul>
                   <p
                     style={{
                       fontSize: "16px",
@@ -328,21 +384,22 @@ function Foods() {
                     {t("allprice")}
                     {calculateTotalSum()}
                   </p>
-              </div>
-            ) : (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <img className="empty" src={empty} alt="" />
-                <p className="empty-card" style={{ fontSize: "24px" }}>
-                  {t("empty")}
-                </p>
-              </div>
-            )}</div>
+                </div>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <img className="empty" src={empty} alt="" />
+                  <p className="empty-card" style={{ fontSize: "24px" }}>
+                    {t("empty")}
+                  </p>
+                </div>
+              )}
+            </div>
             <div className="card-buttons">
               <button
                 onClick={handleCloseButtonClick}
@@ -393,6 +450,7 @@ function Foods() {
           handleCloseButtonClick={handleCloseButtonClick}
         />
       )}
+      <Filter handleAddToCart={handleAddToCart} />
     </div>
   );
 }

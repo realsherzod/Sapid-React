@@ -20,7 +20,7 @@ export default function App() {
           {t('title1')}
         </h1>
         <p data-aos="zoom-in-up"  className="burger-desc">{t('text1')}</p>
-        <button data-aos="zoom-in-up"  className="burger-btn">{t('read')}</button>
+        <a target="_blank" href="https://telegra.ph/Sapid-Fast-Food-12-18"><button data-aos="zoom-in-up"  className="burger-btn">{t('read')}</button></a>
       </div>
       <div data-aos="zoom-in-up"  className="burger-div">
 <img className="burger" src={burger} alt="" />

@@ -24,7 +24,9 @@ const ModalForm = ({
   const handleSendOrder = async () => {
     const products = localStorageData.map((itm) => ({
       id: itm.id,
-      title: itm.title,
+      title_uz: itm.title_uz,
+      title_ru: itm.title_ru,
+      title_en: itm.title_en,
       price: itm.price,
       quantity: itm.quantity,
     }));

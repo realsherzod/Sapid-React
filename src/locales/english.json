@@ -24,5 +24,26 @@
     "name": "Enter your name",
     "email": "Enter your Email address",
     "address1":"Enter your location",
-    "phone": "Enter your phone number"
+    "phone": "Enter your phone number",
+    "choose": "Why you must choose us?",
+    "reason1": "At SAPID you will find unique flavor combinations that will leave you delighted.",
+    "reason2": "We use only fresh and high quality products for your health and pleasure.",
+    "reason3": "Get delicious meals instantly without sacrificing quality.",
+    "reason4": "Regular menu updates using seasonal products.",
+    "reason5": "We support the environment by using packaging without harmful materials.",
+    "reason6": "Subdued interiors and friendly staff for a pleasant stay.",
+    "reason7": "At SAPID, your experience is our priority. We promise to exceed your expectations!",
+    "findus": " Find us",
+    "callus": "Call us",
+    "mailus": "Mail us",
+    "team": "Team",
+    "gallery": "Gallery",
+    "aboutus": "About Us",
+    "sponsor": "Sponsorship",
+    "links": "Useful links",
+    "follow": "Follow us",
+    "sometext": "Don’t miss to subscribe to our new feeds, kindly fill the form below.",
+    "bigtext": "Our chefs carefully select only the freshest and highest quality ingredients. We are proud that each of our burgers, each French fries, like a painting, embodies the art of cooking."
+    
+
 }
